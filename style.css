@@ -1,0 +1,205 @@
+/*
+ * style.css
+ * Este archivo contiene todos los estilos para el portafolio,
+ * incluyendo las variables para los temas oscuro y claro,
+ * animaciones y el diseño responsive.
+ */
+
+/* ============================================= */
+/* ========== VARIABLES DE TEMA (RAÍZ) ========= */
+/* ============================================= */
+
+/*
+ * :root define las variables CSS globales.
+ * Por defecto, establecemos el tema oscuro.
+ * El atributo `data-theme` en la etiqueta <html>
+ * nos permitirá cambiar a un conjunto diferente de variables.
+ */
+ :root {
+    --primary-color: #ff0000; /* Rojo para detalles y bordes */
+    --bg-color: #121212; /* Fondo principal oscuro */
+    --text-color: #ffffff; /* Texto principal blanco */
+    --card-bg-color: #1e1e1e; /* Fondo de las tarjetas */
+    --navbar-bg-color: rgba(18, 18, 18, 0.85); /* Navbar semi-transparente */
+    --footer-bg-color: #1e1e1e;
+    --input-bg-color: #2a2a2a;
+    --border-glow: 0 0 15px rgba(255, 0, 0, 0.7); /* Efecto de brillo rojo */
+    --border-color: #ff0000;
+}
+
+/*
+ * Cuando el <html> tenga el atributo `data-theme="light"`,
+ * estas variables sobreescribirán las de :root.
+ */
+[data-theme="light"] {
+    --bg-color: #f9f9f9;
+    --text-color: #000000;
+    --card-bg-color: #ffffff;
+    --navbar-bg-color: rgba(249, 249, 249, 0.85);
+    --footer-bg-color: #e9e9e9;
+    --input-bg-color: #e9e9e9;
+    --border-glow: 0 0 10px rgba(255, 0, 0, 0.3); /* Brillo más sutil */
+    --border-color: #ff0000;
+}
+
+
+/* ============================================= */
+/* ============= ESTILOS GENERALES ============= */
+/* ============================================= */
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 70px; /* Espacio para la navbar fija */
+    /* Transición suave para todos los elementos al cambiar de tema */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+h2 {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Agregamos una transición suave a los componentes clave */
+.card, .navbar, footer, .form-control, .btn, .tech-icon {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* ============================================= */
+/* ============ ESTILOS DE COMPONENTES ========= */
+/* ============================================= */
+
+/* --- Navbar --- */
+.navbar {
+    background-color: var(--navbar-bg-color);
+    backdrop-filter: blur(10px); /* Efecto de desenfoque para el fondo */
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.navbar-brand, .nav-link {
+    color: var(--text-color) !important;
+}
+
+.nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+/* --- Botón de Tema --- */
+#theme-toggle-btn {
+    color: var(--text-color);
+    border-color: var(--primary-color);
+}
+#theme-toggle-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* --- Perfil --- */
+.profile-img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+    box-shadow: var(--border-glow);
+    animation: heartbeat 1.5s ease-in-out infinite; /* Animación de latido */
+}
+
+/* Animación de latido */
+@keyframes heartbeat {
+    0% { transform: scale(1); box-shadow: var(--border-glow); }
+    50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(255, 0, 0, 1); }
+    100% { transform: scale(1); box-shadow: var(--border-glow); }
+}
+
+/* --- Cards --- */
+.card {
+    background-color: var(--card-bg-color);
+    border: 1px solid transparent; /* Borde inicial transparente */
+    border-radius: 15px;
+}
+
+.animated-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.animated-card:hover {
+    transform: translateY(-10px); /* Se levanta al pasar el mouse */
+    border-color: var(--border-color);
+    box-shadow: var(--border-glow);
+}
+
+.card-title {
+    color: var(--primary-color);
+}
+
+/* --- Stack Tecnológico --- */
+.tech-icon {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 20px;
+    background-color: var(--card-bg-color);
+    border-radius: 10px;
+    border: 1px solid var(--primary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+.tech-icon:hover {
+    transform: scale(1.1);
+    box-shadow: var(--border-glow);
+}
+
+
+/* --- Formulario de Contacto --- */
+.form-control {
+    background-color: var(--input-bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--primary-color);
+}
+
+.form-control::placeholder {
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.form-control:focus {
+    background-color: var(--input-bg-color);
+    color: var(--text-color);
+    box-shadow: var(--border-glow);
+    border-color: var(--primary-color);
+}
+
+/* --- Botones --- */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+.btn-primary:hover {
+    background-color: #d10000; /* Un rojo un poco más oscuro */
+    border-color: #d10000;
+}
+
+
+/* --- Footer --- */
+footer {
+    background-color: var(--footer-bg-color);
+    border-top: 1px solid var(--primary-color);
+}
+
+.social-icon {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: var(--primary-color);
+}

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es"> <!-- El atributo data-theme será añadido por JS para evitar parpadeos -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berlyn Simet | Desarrollador Web</title>
+
+    <!-- CDN de Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- CDN de Font Awesome (para iconos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+    <!-- Enlace a nuestra hoja de estilos personalizada -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Script para aplicar el tema ANTES de renderizar y evitar FOUC (Flash of Unstyled Content) -->
+    <!-- Este script es una IIFE (Expresión de Función Invocada Inmediatamente) -->
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+          document.documentElement.setAttribute('data-theme', savedTheme);
+        } else {
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+        }
+      })();
+    </script>
+</head>
+<body>
+
+    <!-- ============================================= -->
+    <!-- ============== MENÚ DE NAVEGACIÓN =========== -->
+    <!-- ============================================= -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Berlyn Simet</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#perfil">🔥 Perfil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experiencia">🎓 Experiencia</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tecnologias">🛠️ Tecnologías</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#proyectos">🚀 Proyectos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#videos">🎬 Videos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">📩 Contacto</a></li>
+                </ul>
+                <!-- Botón para cambiar el tema -->
+                <button id="theme-toggle-btn" class="btn btn-outline-light ms-3">
+                    <i class="fas fa-sun"></i> <!-- El icono cambiará con JS -->
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================= -->
+    <!-- ================== PERFIL =================== -->
+    <!-- ============================================= -->
+    <section id="perfil" class="py-5 text-center">
+        <div class="container">
+            <h2 class="mb-4">Desarrollador Frontend (UI/UX)</h2>
+            <img src="https://lh3.googleusercontent.com/a/ACg8ocLTDf8zuU_hZVu3_0Rvx8w1SzG-XLJqUGsZ96IVDaQtAfk8lWY=s288-c-no" alt="Foto de Perfil" class="profile-img">
+            <h3 class="mt-3">Berlyn Simet</h3>
+            <p class="lead">
+                👨‍💻 Ingeniero en Sistemas y Computación | 💾 Programación | 🌐 Frontend y Backend | 📊 Análisis de Datos
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- ================ EXPERIENCIA ================ -->
+    <!-- ============================================= -->
+    <section id="experiencia" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Experiencia Profesional</h2>
+            <div class="row">
+                <!-- Card 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 animated-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Dev Solutions Inc.</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">2023 - 2025</h6>
+                            <p class="card-text">Líder de equipo Frontend, enfocado en la optimización de la experiencia de usuario y rendimiento de la plataforma principal.</p>
+                            <span class="badge bg-danger">Frontend</span>
+                            <span class="badge bg-primary">UI/UX</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 animated-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Creative Tech</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">2021 - 2023</h6>
+                            <p class="card-text">Desarrollador Full-Stack, trabajando en aplicaciones web interactivas para clientes del sector e-commerce.</p>
+                             <span class="badge bg-success">Full-Stack</span>
+                             <span class="badge bg-info">Backend</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 animated-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Data Analytics Corp.</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">2020 - 2021</h6>
+                            <p class="card-text">Pasantía en análisis de datos, creando dashboards y visualizaciones para interpretar métricas de negocio.</p>
+                            <span class="badge bg-warning text-dark">Data Analytics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- ================ TECNOLOGÍAS ================ -->
+    <!-- ============================================= -->
+    <section id="tecnologias" class="py-5 text-center">
+        <div class="container">
+            <h2 class="mb-5">Stack Tecnológico</h2>
+            <div class="row">
+                <div class="col-md-3 col-6 mb-4"><div class="tech-icon">🔵 HTML5</div></div>
+                <div class="col-md-3 col-6 mb-4"><div class="tech-icon">🟣 CSS3</div></div>
+                <div class="col-md-3 col-6 mb-4"><div class="tech-icon">⚫ JavaScript</div></div>
+                <div class="col-md-3 col-6 mb-4"><div class="tech-icon">🔴 Bootstrap</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- ================= PROYECTOS ================= -->
+    <!-- ============================================= -->
+    <section id="proyectos" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Proyectos</h2>
+            <div class="row">
+                <!-- Proyecto 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card animated-card">
+                        <img src="Berlyn Simet _ Desarrollador Web - Personal_ Microsoft​ Edge 13_6_2025 6_13_58 p. m..png" class="card-img-top" alt="Proyecto 1">
+                        <div class="card-body text-center">
+                            <p class="card-text">Descripción breve de este increíble proyecto que demuestra mis habilidades.</p>
+                            <a href="#" target="_blank" class="btn btn-primary">Ver</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Proyecto 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card animated-card">
+                        <img src="https://dummyimage.com/600x400/343a40/ffffff.png&text=Proyecto+2" class="card-img-top" alt="Proyecto 2">
+                        <div class="card-body text-center">
+                            <p class="card-text">Descripción breve de este increíble proyecto que demuestra mis habilidades.</p>
+                            <a href="#" class="btn btn-primary">Ver</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Proyecto 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card animated-card">
+                        <img src="https://dummyimage.com/600x400/343a40/ffffff.png&text=Proyecto+3" class="card-img-top" alt="Proyecto 3">
+                        <div class="card-body text-center">
+                            <p class="card-text">Descripción breve de este increíble proyecto que demuestra mis habilidades.</p>
+                            <a href="#" class="btn btn-primary">Ver</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- =================== VIDEOS ================== -->
+    <!-- ============================================= -->
+    <section id="videos" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Videos</h2>
+            <div class="row">
+                <!-- Video 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card animated-card">
+                        <div class="ratio ratio-16x9">
+                             <iframe src="https://www.youtube.com/embed/S_roMeig-YQ" title="YouTube video" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Tutorial de CSS Moderno</h5>
+                            <p class="card-text">Un video explicando técnicas avanzadas de CSS para crear interfaces atractivas.</p>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Video 2 -->
+                 <div class="col-md-4 mb-4">
+                    <div class="card animated-card">
+                        <div class="ratio ratio-16x9">
+                             <iframe src="https://www.youtube.com/embed/DHbgGN_L2w4" title="YouTube video" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Intro a JavaScript ES6+</h5>
+                            <p class="card-text">Conceptos clave de JavaScript moderno para mejorar tu código.</p>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Video 3 -->
+                 <div class="col-md-4 mb-4">
+                    <div class="card animated-card">
+                        <div class="ratio ratio-16x9">
+                             <iframe src="https://www.youtube.com/embed/zM4gY22bT4o" title="YouTube video" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Despliegue en 5 Minutos</h5>
+                            <p class="card-text">Cómo publicar tu sitio web de forma rápida y gratuita.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- =================== CONTACTO ================ -->
+    <!-- ============================================= -->
+    <section id="contacto" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Contacto</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Tu Nombre">
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Tu Email">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="4" placeholder="Tu Mensaje"></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- =================== FOOTER ================== -->
+    <!-- ============================================= -->
+    <footer class="py-4 text-center">
+        <div class="container">
+            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <p class="mt-3 mb-0">© 2024 Berlyn Simet. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- CDN de JS de Bootstrap (Necesario para el menú responsive) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Nuestro script personalizado, se carga al final -->
+    <script src="script.js"></script>
+</body>
+</html>
